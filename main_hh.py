@@ -66,7 +66,7 @@ def main():
     if _xsrf:
         response_post = login(session, _xsrf, "username", "password")
 
-        # Сохраняем результат в файл
+        # Сохраняю результат в файл
         save_response_to_file(response_post, "login_success_HH.html")
     else:
         print("Произошла ошибка при получении _xsrf токена.")
