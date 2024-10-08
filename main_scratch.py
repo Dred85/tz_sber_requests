@@ -18,7 +18,7 @@ def get_csrf_token(session):
     """
     Получает страницу авторизации и извлекает CSRF-токен из cookies.
     """
-    response_get = session.get(URL_LOGIN_PAGE)
+    session.get(URL_LOGIN_PAGE)
     csrf_token = session.cookies.get("scratchcsrftoken", domain=".scratch.mit.edu")
     if csrf_token:
         print(f"Получен CSRF-токен: {csrf_token}")
