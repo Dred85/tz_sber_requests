@@ -18,7 +18,7 @@ def get_xsrf_token(session):
     """
     Получает страницу входа и извлекает _xsrf token из cookies.
     """
-    response_get = session.get(URL)
+    session.get(URL)
     _xsrf = session.cookies.get("_xsrf", domain=".hh.ru")
     if _xsrf:
         print(f"Получен _xsrf токен: {_xsrf}")
@@ -66,7 +66,7 @@ def main():
     if _xsrf:
         response_post = login(session, _xsrf, "username", "password")
 
-        # Шаг 4: Сохраняем результат в файл
+        # Сохраняем результат в файл
         save_response_to_file(response_post, "login_success_HH.html")
     else:
         print("Произошла ошибка при получении _xsrf токена.")
