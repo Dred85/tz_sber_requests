@@ -61,11 +61,9 @@ def main():
 
     # Получаю _xsrf токен
     _xsrf = get_xsrf_token(session)
-
     # Авторизуюсь
     if _xsrf:
         response_post = login(session, _xsrf, "username", "password")
-
         # Сохраняю результат в файл
         save_response_to_file(response_post, "login_success_HH.html")
     else:

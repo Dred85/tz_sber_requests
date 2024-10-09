@@ -67,14 +67,11 @@ def save_response_to_file(response, filename):
 def main():
     # Создаю сессию
     session = create_session()
-
     # Получаю CSRF-токен
     csrf_token = get_csrf_token(session)
-
     # Авторизуюсь
     if csrf_token:
         response_post = login(session, csrf_token, "username", "password")
-
         # Сохраняю результат в файл
         save_response_to_file(response_post, "login_success_scratch.html")
     else:
